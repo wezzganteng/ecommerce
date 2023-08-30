@@ -1,6 +1,6 @@
 
 <template>
-  <div class="relative pt-20">
+  <div class="relative">
     <img src="https://cdn-cms.pgimgs.com/news/2020/09/Cara-Aman-Berbelanja-Di-Masa-Pandemi-Covid-19-e1599617055437.jpg" class="absolute inset-0 h-full w-full object-cover" alt="" />
     <div class="relative bg-emerald-700 bg-opacity-90">
       <svg class="absolute inset-x-0 -bottom-1 text-white" viewBox="0 0 1160 163">
@@ -9,8 +9,10 @@
       <div class="relative mx-auto overflow-hidden px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
         <div class="flex flex-col items-center justify-between xl:flex-row">
           <div class="mb-12 w-full max-w-xl xl:mb-0 xl:w-7/12 xl:pr-16">
-            <h2 class="mb-6 max-w-lg font-sans text-3xl font-bold tracking-tight text-white sm:text-7xl sm:leading-none">Silakan masuk ke akun Anda.</h2>
-            <p class="mb-4 max-w-xl text-base text-gray-200 md:text-lg">Selamat datang di pusat belanja online yang menawarkan lebih dari sekadar produk.</p>
+            <h2 class="mb-6 max-w-lg font-sans text-3xl font-bold tracking-tight text-white sm:text-7xl sm:leading-none">Welcome back 
+              Enter your Account.</h2>
+            <p class="mb-4 max-w-xl text-base text-gray-200 md:text-lg">
+"Welcome to the online shopping hub that offers more than just products."</p>
             <a href="/" aria-label="" class="inline-flex items-center font-semibold tracking-wider text-teal-400 transition-colors duration-200 hover:text-teal-300">
               Learn more
               <svg class="ml-2 inline-block w-3" fill="currentColor" viewBox="0 0 12 12">
@@ -18,7 +20,7 @@
               </svg>
             </a>
           </div>
-          <div class="w-full max-w-xl xl:w-5/12 xl:px-8">
+          <div class="w-full max-w-xl xl:w-5/12 xl:px-8 pt-20">
             <div class="overflow-hidden rounded-xl border-t-4 border-emerald-600 bg-white p-7 shadow-2xl shadow-emerald-300 sm:p-10">
               <h3 class="mb-4 text-xl font-bold text-emerald-900 sm:mb-6 sm:text-center sm:text-2xl"> SIGN IN</h3>
               <form  @submit.prevent="performLogin">
@@ -34,7 +36,7 @@
                 <div class="mt-4 mb-2 sm:mb-4">
                   <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-xl bg-emerald-600 px-6 font-medium tracking-wide text-white shadow-md ring-emerald-200 transition duration-200 hover:bg-emerald-700 focus:outline-none focus:ring">Login</button>
                 </div>
-                <p class="text-xs text-gray-600 sm:text-sm">* Creditcard not required</p>
+                <p class="text-xs text-gray-600 sm:text-sm"></p>
               </form>
             </div>
           </div>

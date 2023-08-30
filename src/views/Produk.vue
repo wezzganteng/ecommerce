@@ -1,7 +1,8 @@
 <template>
   <!-- source: https://github.com/mfg888/Responsive-Tailwind-CSS-Grid/blob/main/index.html -->
+  <div class="bg-emerald-50">
 <br><br><br>
-<div class="text-center p-10">
+<div class=" bg-emerald-50 text-center p-10">
     <h1 class="font-bold text-4xl mb-4 ">PRODUK</h1>
 
 </div>
@@ -37,7 +38,7 @@
 
 
 <!-- credit -->
-
+</div>
 
 
 </template>

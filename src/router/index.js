@@ -10,6 +10,7 @@ import Checkout from '../views/CheckOut.vue'
 import Cart from '../views/Cart.vue'
 import Profile from '../views/Profile.vue'
 import Order from '../views/Order.vue'
+import Contact from '../views/Contact.vue'
 const routes = [
 
     {
@@ -38,6 +39,11 @@ const routes = [
         path: '/brand',
         name: 'Brand',
         component: Brand,
+    },
+    {
+        path: '/contact',
+        name: 'Contact',
+        component: Contact,
     },
      {
         path: '/kategori',

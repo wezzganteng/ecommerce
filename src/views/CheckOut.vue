@@ -36,40 +36,30 @@
     <p class="text-gray-400">Check your items. And select a suitable shipping method.</p>
     <div v-for="cart in getCart" :key="cart.cart_id" class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
       <div class="flex flex-col rounded-lg bg-white sm:flex-row">
-        <img class="m-2 h-24 w-28 rounded-md border object-cover object-center" src="https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+        <img class="m-2 h-24 w-28 rounded-md border object-cover object-center" src="https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
         <div class="flex w-full flex-col px-4 py-4">
           <span class="font-semibold">{{ cart.name }}</span>
-          <span class="float-right text-gray-400">42EU - 8.5US</span>
-          <p class="text-lg font-bold">Rp.{{ cart.regular_price * cart.qty }}</p>
+          <span class="float-right text-gray-400">x{{ cart.qty }}</span>
+          <p class="text-lg font-bold">{{ (cart.regular_price * cart.qty).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }) }}</p>
         </div>
       </div>
      
     </div>
 
-    <p class="mt-8 text-lg font-medium">Metode pembayaran</p>
+    <p class="mt-8 text-lg font-medium">Payment type</p>
     <form class="mt-5 grid gap-6">
       <div class="relative">
-        <input class="peer hidden" id="radio_1" type="radio" name="radio" v-model="paymentType"/>
+        <input class="peer hidden" id="radio_1" type="radio" name="radio"  value="cash_on_delivery" v-model="paymentType"/>
         <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
         <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
           <img class="w-14 object-contain" src="https://img.freepik.com/free-photo/3d-hand-making-cashless-payment-from-smartphone_107791-16609.jpg?w=740&t=st=1693034511~exp=1693035111~hmac=2a295b1584dd6485da2a489b4e413e3c899ebb0cbdae23f780bd6f60580815b0" alt="" />
           <div class="ml-5">
-            <span class="mt-2 font-semibold">COD (Cash or Delivery) </span>
-            <p class="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
+            <span class="mt-2 font-semibold mt-5">COD (Cash or Delivery) </span>
+            <p class="text-slate-500 text-sm leading-6"></p>
           </div>
         </label>
       </div>
-      <div class="relative">
-        <input class="peer hidden" id="radio_2" type="radio" name="radio" checked v-model="paymentType" />
-        <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-        <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
-          <img class="w-14 object-contain" src="https://img.freepik.com/free-vector/hands-holding-credit-card-mobile-phone-with-banking-app-person-paying-with-bank-card-transferring-money-shopping-online-flat-vector-illustration-payment-finance-concept_74855-24760.jpg?size=626&ext=jpg&ga=GA1.2.1208615681.1692072670&semt=sph" alt="" />
-          <div class="ml-5">
-            <span class="mt-2 font-semibold">Kartu kredit/Debit</span>
-            <p class="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
-          </div>
-        </label>
-      </div>
+     
     </form>
 
     <p class="mt-8 text-lg font-medium">Delivery Option</p>
@@ -84,7 +74,7 @@
                         <img class="w-14 object-contain" src="https://componentland.com/images/naorrAeygcJzX0SyNI4Y0.png"
                             alt="" />
                         <div class="ml-5">
-                            <span class="mt-2 font-semibold">Fedex Delivery - Standard</span>
+                            <span class="mt-2 font-semibold">Standard</span>
                             <p class="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
                         </div>
                     </label>
@@ -99,7 +89,7 @@
                         <img class="w-14 object-contain" src="https://componentland.com/images/naorrAeygcJzX0SyNI4Y0.png"
                             alt="" />
                         <div class="ml-5">
-                            <span class="mt-2 font-semibold">Fedex Delivery - Express</span>
+                            <span class="mt-2 font-semibold">Express</span>
                             <p class="text-slate-500 text-sm leading-6">Delivery: 1-2 Days</p>
                         </div>
                     </label>
@@ -160,17 +150,14 @@
       <!-- Total -->
       <div class="mt-6 border-t border-b py-2">
         <div class="flex items-center justify-between">
-          <p class="text-sm font-medium text-gray-900">Subtotal</p>
-          <p class="font-semibold text-gray-900">{{ totalHarga }}</p>
+        
         </div>
         <div class="flex items-center justify-between">
-          <p class="text-sm font-medium text-gray-900">Shipping</p>
-          <p class="font-semibold text-gray-900">{{ (getCart.length * 10000).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}}</p>
+          
         </div>
       </div>
       <div class="mt-6 flex items-center justify-between">
-        <p class="text-sm font-medium text-gray-900">Total</p>
-        <p class="text-2xl font-semibold text-gray-900">Rp. {{ totalHarga  }}</p>
+        
       </div>
     </div>
     <button @click="performCheckout" class="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
